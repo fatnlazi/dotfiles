@@ -5,7 +5,7 @@ local M = {}
 M.unload = function(prefix)
   local prefix_with_dot = prefix..'.'
 
-  for key, val in pairs(package.loaded) do
+  for key, _ in pairs(package.loaded) do
     if key == prefix
     or key:sub(1, #prefix_with_dot) == prefix_with_dot
     then
@@ -32,6 +32,18 @@ end
 
 M.base = function(path)
   return string.match(path, 'lua/(.+).lua$')
+end
+
+M.keymap = function(mode, lhs, rhs, opts)
+  local default = {
+    noremap = true,
+    silent = true,
+  }
+  if not opts then
+    opts = {}
+  end
+  local opt = vim.tbl_deep_extend('force', default, opts)
+  vim.api.nvim_set_keymap(mode, lhs, rhs, opt)
 end
 
 return M

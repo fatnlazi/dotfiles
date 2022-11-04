@@ -1,5 +1,5 @@
 local u = require('core.util')
-colorscheme = 'catppuccin'
+local colorscheme = 'catppuccin'
 
 if colorscheme == 'catppuccin' then
   local catppuccin = u.require('catppuccin')

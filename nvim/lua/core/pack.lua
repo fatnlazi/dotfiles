@@ -39,7 +39,14 @@ return packer.startup(function(use)
   }
   use 'neovim/nvim-lspconfig'
   use 'lukas-reineke/indent-blankline.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'nvim-treesitter/nvim-treesitter-context',
+      'nvim-treesitter/nvim-treesitter-refactor',
+      -- 'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+  }
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -66,6 +73,7 @@ return packer.startup(function(use)
     },
   }
   use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
 
   if packer_bootstrap then
     packer.sync()

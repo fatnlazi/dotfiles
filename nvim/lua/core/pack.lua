@@ -29,42 +29,45 @@ packer.init {
 
 packer.reset()
 
-packer.use 'wbthomason/packer.nvim'
-packer.use 'nvim-lua/plenary.nvim'
-packer.use 'nvim-lua/popup.nvim'
-packer.use {
-  'catppuccin/nvim',
-  as = 'catppuccin',
-}
-packer.use 'neovim/nvim-lspconfig'
-packer.uxe 'lukas-reineke/indent-blankline.nvim'
-packer.use 'nvim-treesitter/nvim-treesitter'
-packer.use {
-  'nvim-telescope/telescope.nvim',
-  requires = {
-    'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-fzf-native.nvim',
-  },
-}
-packer.use {
-  'nvim-tree/nvim-tree.lua',
-  requires = {
-    'nvim-tree/nvim-web-devicons',
-  },
-}
-packer.use {
-  'hrsh7th/nvim-cmp',
-  requires = {
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lua',
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip',
-  },
-}
+return packer.startup(function(use)
+  use 'wbthomason/packer.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/popup.nvim'
+  use {
+    'catppuccin/nvim',
+    as = 'catppuccin',
+  }
+  use 'neovim/nvim-lspconfig'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      -- 'nvim-telescope/telescope-fzf-native.nvim',
+    },
+  }
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  }
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip',
+    },
+  }
+  use 'windwp/nvim-autopairs'
 
-if packer_bootstrap then
-  packer.sync()
-end
+  if packer_bootstrap then
+    packer.sync()
+  end
+end)

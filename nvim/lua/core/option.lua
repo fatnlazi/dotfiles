@@ -3,6 +3,7 @@ vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.expandtab = true
 vim.opt.mouse = 'a'
 vim.opt.number = true
+vim.opt.scrolloff = 9999
 vim.opt.shiftwidth = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true

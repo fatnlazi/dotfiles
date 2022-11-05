@@ -3,15 +3,20 @@ local u = require('core.util')
 local telescope = u.require('telescope')
 if telescope then
   telescope.setup {
-    extensions = {
-      fzf = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = 'smart_case',
+    pickers = {
+      find_files = {
+        theme = 'dropdown',
       },
+    },
+    extensions = {
+      -- fzf = {
+      --   fuzzy = true,
+      --   override_generic_sorter = true,
+      --   override_file_sorter = true,
+      --   case_mode = 'smart_case',
+      -- },
     },
   }
 
-  telescope.load_extension('fzf')
+  -- telescope.load_extension('fzf')
 end

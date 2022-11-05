@@ -1,3 +1,4 @@
+vim.opt.clipboard = 'unnamedplus'
 vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.expandtab = true
 vim.opt.mouse = 'a'

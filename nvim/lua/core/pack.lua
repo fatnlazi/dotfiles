@@ -32,18 +32,39 @@ packer.reset()
 packer.use 'wbthomason/packer.nvim'
 packer.use 'nvim-lua/plenary.nvim'
 packer.use 'nvim-lua/popup.nvim'
-
-for _, val in ipairs(u.glob(u.config_path..'/lua/package/*/specify.lua')) do
-  local specify = u.require(u.base(val))
-  for _, each_specify in ipairs(specify) do
-    packer.use(each_specify)
-  end
-end
+packer.use {
+  'catppuccin/nvim',
+  as = 'catppuccin',
+}
+packer.use 'neovim/nvim-lspconfig'
+packer.uxe 'lukas-reineke/indent-blankline.nvim'
+packer.use 'nvim-treesitter/nvim-treesitter'
+packer.use {
+  'nvim-telescope/telescope.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-fzf-native.nvim',
+  },
+}
+packer.use {
+  'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons',
+  },
+}
+packer.use {
+  'hrsh7th/nvim-cmp',
+  requires = {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-nvim-lua',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+  },
+}
 
 if packer_bootstrap then
   packer.sync()
-end
-
-for _, val in ipairs(u.glob(u.config_path..'/lua/package/*/config.lua')) do
-  u.require(u.base(val))
 end

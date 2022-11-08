@@ -38,6 +38,14 @@ return packer.startup(function(use)
     as = 'catppuccin',
   }
   use 'neovim/nvim-lspconfig'
+  use {
+    'folke/trouble.nvim',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+      'folke/lsp-colors.nvim',
+    },
+  }
+  use 'jose-elias-alvarez/null-ls.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -70,10 +78,23 @@ return packer.startup(function(use)
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
+      'lukas-reineke/cmp-rg',
+      'tzachar/cmp-fuzzy-path',
     },
   }
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
+  use 'mfussenegger/nvim-dap'
+  use {
+    'romgrk/barbar.nvim',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  }
+  use {
+    'akinsho/toggleterm.nvim',
+    tag = '*',
+  }
 
   if packer_bootstrap then
     packer.sync()

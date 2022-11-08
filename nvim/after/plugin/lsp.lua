@@ -52,4 +52,8 @@ if lspconfig then
   lspconfig.clangd.setup {
     on_attach = on_attach,
   }
+
+  lspconfig.eslint.setup {
+    on_attach = on_attach,
+  }
 end
